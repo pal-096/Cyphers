@@ -1,0 +1,43 @@
+letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+key=int(raw_input("Enter the key for Caesar code: "))
+trans=''
+want=raw_input("Encrypt or Decrypt\n")
+
+if want.title()=="Encrypt":
+	code=raw_input("Enter the Sentence to be encrypted\n")
+	code=code.upper()
+	l=len(code)
+	i=0
+	while i<l:
+		symbol=code[i]
+		if symbol in letters:
+			num=letters.find(symbol)
+			if(num+key>25):
+				trans+=letters[num+key-26]
+			else:
+				trans+=letters[num+key]
+		else :
+			trans+=symbol
+		i+=1
+	print trans
+
+elif want.title()=="Decrypt":
+	code=raw_input("Enter the Sentence to be decrypted\n")
+	code=code.upper()
+	l=len(code)
+	i=0
+	while i<l:
+		symbol=code[i]
+		if symbol in letters:
+			num=letters.find(symbol)
+			if(num-key<0):
+				trans+=letters[num-key+26]
+			else:
+				trans+=letters[num-key]
+		else :
+			trans+=symbol
+		i+=1
+	print trans
+else:
+	print("Wrong choice")
+raw_input("Press enter to exit")
