@@ -1,0 +1,24 @@
+letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+code=raw_input("Enter the encrypted code: ")
+key=0
+
+while key<26:
+	trans=''
+	code=code.upper()
+	l=len(code)
+	i=0
+	while i<l:
+		symbol=code[i]
+		if symbol in letters:
+			num=letters.find(symbol)
+			if(num-key<0):
+				trans+=letters[num-key+26]
+			else:
+				trans+=letters[num-key]
+		else :
+			trans+=symbol
+		i+=1
+	print "Key ",key,trans
+	print
+	key+=1
+raw_input("Press enter to exit")
